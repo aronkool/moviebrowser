@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1241" y="698"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Details View Controller-->
         <scene sceneID="0AH-Ol-DDT">
             <objects>
-                <viewController id="SWG-AR-tnz" sceneMemberID="viewController">
+                <viewController id="SWG-AR-tnz" customClass="MovieDetailsViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AeK-W1-gwy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

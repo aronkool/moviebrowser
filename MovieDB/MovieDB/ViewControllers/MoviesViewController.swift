@@ -10,17 +10,28 @@ import UIKit
 
 class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate{
     
+    private struct Segues{
+        static let detailSeque = "showMovieDetails"
+    }
+    
     @IBOutlet weak var searchbar: UISearchBar!
     @IBOutlet weak var resultsTitle: UILabel!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var resultsCollectionView: UICollectionView!
     
-    let viewModel = MoviesListViewModel()
+    private let viewModel = MoviesListViewModel()
+    private var selectedMovie : Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsCollectionView.register(cell: MovieCell.identifier)
         startSearching(search: .recent)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let view = segue.destination as? MovieDetailsViewController, let movie = selectedMovie{
+            view.movie = movie
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -33,6 +44,11 @@ class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICol
             cell.loadImage(url: imageUrl)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedMovie = viewModel.movieAtIndexPath(indexPath: indexPath)
+        performSegue(withIdentifier: Segues.detailSeque, sender: self)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
