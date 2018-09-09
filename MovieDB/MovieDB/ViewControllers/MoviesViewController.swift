@@ -55,8 +55,15 @@ class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICol
         if searchText.isEmpty{
             startSearching(search: .recent)
         } else{
-            startSearching(search: .query(searchText))
+            //Some delay to throttle requests
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(MoviesViewController.doQuerySearch(query:)), object: nil)
+            self.perform(#selector(MoviesViewController.doQuerySearch(query:)), with: searchText, afterDelay: 0.5)
         }
+    }
+    
+    //Strings are easier to expose in objective-C to call it from a selector
+    @objc private func doQuerySearch(query : String){
+        startSearching(search: .query(query))
     }
     
     private func startSearching(search : SearchType){
