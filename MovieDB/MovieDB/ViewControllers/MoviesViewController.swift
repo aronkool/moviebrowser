@@ -58,7 +58,7 @@ class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICol
         } else{
             //Some delay to throttle requests
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(MoviesViewController.doQuerySearch(query:)), object: nil)
-            self.perform(#selector(MoviesViewController.doQuerySearch(query:)), with: searchText, afterDelay: 0.5)
+            self.perform(#selector(MoviesViewController.doQuerySearch(query:)), with: searchText, afterDelay: 0.8)
         }
     }
     
