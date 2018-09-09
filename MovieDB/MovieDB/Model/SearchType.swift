@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum SearchType{
+enum SearchType : Equatable{
+    
     case recent
     case query(String)
 }

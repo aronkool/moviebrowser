@@ -32,7 +32,9 @@ class MoviesListViewModel{
     }
     
     func applyResults(result : MoviesResult){
-        loaderVisible = false
-        self.result = result
+        if lastSearch == result.type{
+            loaderVisible = false
+            self.result = result
+        }
     }
 }

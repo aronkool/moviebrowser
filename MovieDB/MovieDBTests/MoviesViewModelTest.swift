@@ -46,14 +46,14 @@ class MoviesViewModelTest: XCTestCase {
         assertBeginState(model: model)
         model.searchDidStart(search: .query("Star wars"))
         assertLoaderVisiblity(visible: true, model: model)
-        model.applyResults(result: recentResult)
+        model.applyResults(result: starwarsResult)
         assertLoaderVisiblity(visible: false, model: model)
-        assertViewState(title: "Results for Star wars", numberOfResults: 7, model: model)
+        assertStarWarsState(model: model)
     }
     
     func testConcurrentSearches(){
         let model = MoviesListViewModel()
-
+        assertBeginState(model: model)
         model.searchDidStart(search: .recent)
         assertLoaderVisiblity(visible: true, model: model)
         model.searchDidStart(search: .query("Star"))
@@ -61,7 +61,7 @@ class MoviesViewModelTest: XCTestCase {
         assertLoaderVisiblity(visible: true, model: model)
         model.applyResults(result: recentResult)
         //There are results, but not from the last query, so don't update
-        assertBeginState(model: model)
+        assertBeginState(ignoreLoader: true, model: model)
         model.applyResults(result: starwarsResult)
         assertStarWarsState(model: model)
         assertLoaderVisiblity(visible: false, model: model)
@@ -72,15 +72,18 @@ class MoviesViewModelTest: XCTestCase {
     }
     
     private func assertLoaderVisiblity(visible : Bool, model : MoviesListViewModel){
-        assert(model.loaderVisible, "Unexpected visibility for loader")
+        assert(model.loaderVisible == visible, "Unexpected visibility for loader")
     }
     
-    private func assertBeginState(model : MoviesListViewModel){
+    private func assertBeginState(ignoreLoader : Bool = false, model : MoviesListViewModel){
+        if !ignoreLoader{
+            assertLoaderVisiblity(visible: false, model: model)
+        }
         assertViewState(title: "Currently in theatres", numberOfResults: 0, model: model)
     }
     
     private func assertStarWarsState(model : MoviesListViewModel){
-        assertViewState(title: "Results for Star wars", numberOfResults: 7, model: model)
+        assertViewState(title: "Results for: Star wars", numberOfResults: 7, model: model)
     }
     
     private func assertViewState(title : String, numberOfResults : Int, model : MoviesListViewModel){
