@@ -37,4 +37,8 @@ class MoviesListViewModel{
             self.result = result
         }
     }
+    
+    func movieAtIndexPath(indexPath : IndexPath) -> Movie?{
+        return result?.movies[indexPath.row]
+    }
 }

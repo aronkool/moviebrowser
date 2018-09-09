@@ -12,4 +12,17 @@ enum SearchType : Equatable{
     
     case recent
     case query(String)
+    
+    var url : URL{
+        var components = URLComponents(string: TheMovieDB.baseUrl)!
+        var params = [URLQueryItem(name: "api_key", value: TheMovieDB.apiKey)]
+        switch self {
+        case .recent: components.path = "/3/movie/now_playing"
+        case .query(let query):
+            components.path = "/3/search/movie"
+            params.append(URLQueryItem(name: "query", value: query))
+        }
+        components.queryItems = params
+        return components.url!
+    }
 }

@@ -10,4 +10,10 @@ import UIKit
 
 class MovieCell : UICollectionViewCell{
     static let identifier = "MovieCell"
+    
+    @IBOutlet weak var movieCover: UIImageView!
+    
+    func loadImage(url : String){
+        movieCover.loadUrl(url: TheMovieDB.imagesUrl + url)
+    }
 }

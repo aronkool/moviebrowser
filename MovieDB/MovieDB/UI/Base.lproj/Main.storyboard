@@ -21,24 +21,24 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xZO-jt-ddR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="IVT-5e-Jjp"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now in cinema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFD-TY-51Z">
                                 <rect key="frame" x="16" y="128" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Lfx-tT-kTg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bl4-3U-tNX">
-                                <rect key="frame" x="169.5" y="347.5" width="37" height="37"/>
-                            </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y8u-OI-c73">
                                 <rect key="frame" x="0.0" y="172" width="375" height="495"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kbQ-Eb-tYF">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="128" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -49,8 +49,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="EFA-7z-Cj0"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bl4-3U-tNX">
+                                <rect key="frame" x="0.0" y="86" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CFD-TY-51Z" firstAttribute="top" secondItem="xZO-jt-ddR" secondAttribute="bottom" constant="8" id="9lg-es-cju"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CFD-TY-51Z" secondAttribute="trailing" constant="16" id="AuH-JA-Lah"/>
@@ -61,9 +65,7 @@
                             <constraint firstItem="CFD-TY-51Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dCk-5N-ESi"/>
                             <constraint firstItem="Y8u-OI-c73" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="liK-4Q-hRl"/>
                             <constraint firstItem="xZO-jt-ddR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nL0-8S-pc5"/>
-                            <constraint firstItem="bl4-3U-tNX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ob2-fC-DM7"/>
                             <constraint firstItem="Y8u-OI-c73" firstAttribute="top" secondItem="CFD-TY-51Z" secondAttribute="bottom" constant="8" id="tNO-K0-gIe"/>
-                            <constraint firstItem="bl4-3U-tNX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zY5-mF-oen"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
