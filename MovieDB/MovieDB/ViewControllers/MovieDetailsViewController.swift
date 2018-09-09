@@ -15,6 +15,10 @@ class MovieDetailsViewController : BaseViewController{
     
     var movie : Movie!
     
+    var movieView : MovieDetailsView!{
+        return self.view as? MovieDetailsView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -23,6 +27,8 @@ class MovieDetailsViewController : BaseViewController{
     private func updateUI(){
         if let movie = movie{
             self.title = movie.title
+            self.movieView.coverImage.loadUrl(url: TheMovieDB.bigImage(path: movie.imageUrl))
+            self.movieView.movieDescription.text = movie.movieDescription
         }
     }
 }

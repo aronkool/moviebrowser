@@ -14,6 +14,6 @@ class MovieCell : UICollectionViewCell{
     @IBOutlet weak var movieCover: UIImageView!
     
     func loadImage(url : String){
-        movieCover.loadUrl(url: TheMovieDB.imagesUrl + url)
+        movieCover.loadUrl(url: TheMovieDB.smallImage(path: url))
     }
 }

@@ -10,9 +10,16 @@ import Foundation
 
 struct TheMovieDB{
     static let baseUrl = "https://api.themoviedb.org/3"
-    static let imagesUrl = "https://image.tmdb.org/t/p/w200"
     //I rather not have my API-key in a (public) repo
     static let apiKey = "c1ec8bceb177a2b79d49d6b340269743"
+    
+    static func smallImage(path : String) -> String{
+        return "https://image.tmdb.org/t/p/w200\(path)"
+    }
+    
+    static func bigImage(path : String) -> String{
+        return "https://image.tmdb.org/t/p/w500\(path)"
+    }
 }
 
 class RestService{
