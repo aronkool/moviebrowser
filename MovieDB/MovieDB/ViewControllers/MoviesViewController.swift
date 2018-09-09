@@ -24,6 +24,7 @@ class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Movies"
         resultsCollectionView.register(cell: MovieCell.identifier)
         startSearching(search: .recent)
     }

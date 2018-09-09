@@ -11,6 +11,9 @@ import UIKit
 class Appearance{
     
     static func setup(){
-        UILabel.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+
     }
 }
