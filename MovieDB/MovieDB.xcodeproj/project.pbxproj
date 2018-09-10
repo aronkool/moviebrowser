@@ -117,8 +117,8 @@
 		76102B9C21450F6E008D6038 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				76102B9E21450F90008D6038 /* MoviesViewController.swift */,
 				76102BA22145107E008D6038 /* BaseViewController.swift */,
+				76102B9E21450F90008D6038 /* MoviesViewController.swift */,
 				7640519D2145563A0048D067 /* MovieDetailsViewController.swift */,
 			);
 			path = ViewControllers;

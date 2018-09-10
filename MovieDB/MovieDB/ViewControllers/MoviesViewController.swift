@@ -75,12 +75,16 @@ class MoviesViewController : BaseViewController, UICollectionViewDelegate, UICol
                 self?.updateUI()
             }
         }
-        updateUI()
+        updateLoader()
     }
     
     private func updateUI(){
-        self.loader.isHidden = !viewModel.loaderVisible
+        updateLoader()
         resultsTitle.text = viewModel.resultsTitle
         resultsCollectionView.reloadData()
+    }
+    
+    private func updateLoader(){
+        self.loader.isHidden = !viewModel.loaderVisible
     }
 }
